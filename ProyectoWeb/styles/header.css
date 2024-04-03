@@ -1,0 +1,17 @@
+/* pre-procesadores Css
+LESS
+SASS(.SCSS,.SASS*/
+
+header{
+    width: 70%;
+    background-color:#bc8da0;
+    color: firebrick;
+}
+
+/*flex (menú de navegación*/
+
+header #text li{
+    list-style-type: none;
+}
+
+
