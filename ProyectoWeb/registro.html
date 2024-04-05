@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="fonts.css">
+    </head>
+    <body>
+        <div class="formulario">
+            <h1>Registrarse</h1>
+            
+            <form id="registro" method="post">
+                <div class="entrada">
+                    <input type="text" id="nombre" name="nombre" pattern="[A-Za-z\s]{3,20}" required>
+                    <label for="nombre">Nombre de Usuario (min 3 letras o números)</label>
+                </div>
+                <div class="entrada">
+                    <input type="email" id="email" name="email" required>
+                    <label for="email">Email (alguien@example.com)</label>
+                </div>
+                <div class="entrada">
+                    <input type="password" id="pass" name="password" pattern="[A-Za-z\s]{3,20}" required>
+                    <label for="pass">Contraseña (min 3 letras o números)</label>
+                </div>
+                <div class="entrada">
+                    <input type="password" id="contrapass" name="password" pattern="[A-Za-z\s]{3,20}" required>
+                    <label for="contrapass">Confirme Contraseña</label>
+                </div>
+                <div class="check">
+                    <label for="terminos">Acepto los términos y condiciones</label>
+                    <input type="checkbox" id="terminos" name="terminos" required>
+                </div>
+                <div class="boton">
+                    <input type="submit" value="Siguiente">
+                </div>
+            </form>
+        </div>
+    </body>
+</html>
