@@ -1,0 +1,91 @@
+body{
+    font-family: Josefin-Sanz;
+    background-color: teal;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: aqua;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 40px;
+    padding-left: 10%;
+    padding-right: 10%;
+    background-color: aliceblue;
+}
+
+nav ul li{
+    list-style-type: none;
+    display: inline-block;
+    padding: 10px 20px;
+}
+
+nav ul li a{
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+nav ul li a:hover{
+    color:tomato;
+    transition: .3s;
+    
+}
+
+.boton{
+    padding-top: 30px;
+    padding-bottom: 20px ;
+    text-align: center;
+    
+}
+.boton button a{
+    font-family: Josefin-Sanz;
+    text-decoration: none;
+    font-size: 20px;
+    font-family: Josefin-Sanz;
+    color: aliceblue;
+}
+
+.boton button{
+    text-align: center;
+    align-items: center;
+    width: 30%;
+    height: 50px;
+    border: 1px solid;
+    border-radius: 40px;
+    background-color: gray; 
+}
+
+.boton button:hover{
+    border: 1px solid black;
+    background-color: green;
+    transition: .3s;
+}
+
+.indices {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+}
+.indices > * {
+    min-width: 0;
+    flex-basis: 100%;
+}
+@media only screen and (min-width: 768px) {
+    .inicio {
+      padding: 40px 50px;
+    }
+  
+    .indices {
+      flex-direction: row;
+    }
+}
+
+.macro p{
+    text-align: center;
+}
+
+  
