@@ -6,8 +6,8 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="fonts.css">
+        <link rel="stylesheet" href="styles/style.css">
+        <link rel="stylesheet" href="styles/fonts.css">
     </head>
     <body>
         <div class="formulario">
@@ -17,6 +17,10 @@
                 <div class="entrada">
                     <input type="text" id="nombre" name="nombre" pattern="[A-Za-z\s]{3,20}" required>
                     <label for="nombre">Nombre de Usuario (min 3 letras o números)</label>
+                </div>
+                <div class="entrada">
+                    <input type="text" id="rut" name="rut" pattern="[A-Za-z\s]{3,20}" required>
+                    <label for="rut">Ingrese RUT</label>
                 </div>
                 <div class="entrada">
                     <input type="email" id="email" name="email" required>
