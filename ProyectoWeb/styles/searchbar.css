@@ -9,10 +9,12 @@
     display:flex;
     justify-content: center;
     align-items: center;
-    background-color: #232323;
+    background-color: #D9D0DE;
+    
 }
 .bar{
     border-radius: 5px;
+    
     position: relative;
 }
 
