@@ -1,6 +1,6 @@
 body{
     font-family: Josefin-Sanz;
-    background-color: aqua;
+    background-color: whitesmoke;
     padding: 0;
     margin: 0;
     height: 100vh;
@@ -14,7 +14,7 @@ nav{
     padding-top: 40px;
     padding-left: 10%;
     padding-right: 10%;
-    background-color: aliceblue;
+    background-color: #D9D0DE;
 }
 
 nav ul li{
