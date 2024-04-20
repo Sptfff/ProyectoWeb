@@ -3,13 +3,11 @@
         background-color: yellow;
     }
 }
-
 body{
     font-family: Josefin-Sanz;
     background-color: #D9D0DE;
 }
-
-.formulario{
+.registro-container{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -17,52 +15,59 @@ body{
     width: 400px;
     background-color: white;
     border-radius: 10px;
+
 }
 
-.formulario h1{
+.registro-container h1{
     text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid gray;
 }
-
-.formulario form{
-    padding: 20px;
-}
-.entrada {
-    border-bottom: 1px solid gray;
+.entrada{
     position: relative;
+    border-bottom: 1px solid gray;
     margin-bottom: 50px;
+}
+#region{
+    color: gray;
+}
+#comuna{
+    color: gray;
 }
 .entrada input {
     width: 90%;
     border: none;
     background: none;
-    outline: none; 
+    outline: none;
+    
+}
+.entrada select{
+    width: 90%;
+    border: none;
+    background: none;
+    outline: none;
 }
 .entrada label {
     color: red;
     position: absolute;
     left: 10px;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-150%);
     transition: 0.2s ease-out;
     pointer-events: none;
 }
-
 .entrada input:focus + label,
 .entrada input:placeholder-shown + label {
     transform: translateY(-200%);
     font-size: 0.8em;
 }
-
 .boton{
     padding-top: 30px;
     padding-bottom: 20px ;
     text-align: center;
     
 }
-
 .boton input{
     text-align: center;
     align-items: center;
@@ -80,25 +85,4 @@ body{
     border: 1px solid black;
     background-color: green;
     transition: .3s;
-}
-
-.registrar-button{
-    text-align: center;
-    font-size: 0.9em;
-    color: black;
-}
-
-.registrar-button a{
-    color: blueviolet;
-    text-decoration: none;
-}
-
-.registrar-button a:hover{
-    color: red;
-    text-decoration: underline;
-}
-
-
-.check{
-    text-align: center;
 }
