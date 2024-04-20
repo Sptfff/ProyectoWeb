@@ -1,0 +1,67 @@
+.content {
+    display: flex;
+    margin-top: 20px; 
+}
+/*--------------------------BOTON----------------------------*/
+.content .boton{
+    padding-top: 30px;
+    padding-bottom: 20px ;
+    text-align: center;
+    padding-left: 10%;
+    width: 20%;
+}
+.content .boton button{
+    font-family: Josefin-Sanz;
+    text-decoration: none;
+    font-size: 20px;
+    color: red;
+    border-radius: 20px;
+    
+}
+.content .boton button a{
+    text-decoration: none;
+    color: blue;
+}
+.boton button:hover{
+    transition: .3s;
+    a{
+        color: red;
+    }
+}
+/*-------------------------------------------------------------------*/
+/*----------------------------BUSCADOR------------------------------*/
+.content form{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 30px;
+    padding-bottom: 20px ;
+    width: 50%;
+}
+.content form input{
+
+    font-family: Josefin-Sanz;
+    width: 40%;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+.content form input::placeholder{
+    text-align: center;
+}
+
+.content .buscar button{    
+    font-size: 15px;
+    font-family: Josefin-Sanz;
+    border-radius: 10px;
+    color: blue;
+    justify-content: center;
+    height: 30px;
+}
+.content .buscar button:hover{
+    transition: .3s;
+    cursor: pointer;
+    color: red;
+}
+.title{
+    text-align: center;
+}
