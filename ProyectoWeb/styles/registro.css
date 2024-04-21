@@ -3,72 +3,83 @@
         background-color: yellow;
     }
 }
+
 body{
     font-family: Josefin-Sanz;
     background-color: #D9D0DE;
 }
-.registro-container{
+
+.formulario{
     position: absolute;
-    top: 50%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
     background-color: white;
     border-radius: 10px;
-
 }
 
-.registro-container h1{
+.formulario h1{
     text-align: center;
     padding-top: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid gray;
 }
-.entrada{
-    position: relative;
+
+.formulario form{
+    padding: 20px;
+}
+.entrada {
     border-bottom: 1px solid gray;
+    position: relative;
     margin-bottom: 50px;
-}
-#region{
-    color: gray;
-}
-#comuna{
-    color: gray;
 }
 .entrada input {
     width: 90%;
     border: none;
     background: none;
-    outline: none;
-    
-}
-.entrada select{
-    width: 90%;
-    border: none;
-    background: none;
-    outline: none;
+    outline: none; 
 }
 .entrada label {
     color: red;
     position: absolute;
     left: 10px;
     top: 50%;
-    transform: translateY(-150%);
+    transform: translateY(-200%);
     transition: 0.2s ease-out;
     pointer-events: none;
 }
-.entrada input:focus + label,
+
+.entrada input:focus + label, 
 .entrada input:placeholder-shown + label {
     transform: translateY(-200%);
     font-size: 0.8em;
 }
+
+.entrada select label{
+    color: red;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-200%);
+    transition: 0.2s ease-out;
+    pointer-events: none;
+}
+
+.entrada select:focus + label, 
+.entrada select:placeholder-shown + label {
+    transform: translateY(-200%);
+    font-size: 0.8em;
+}
+
 .boton{
     padding-top: 30px;
     padding-bottom: 20px ;
     text-align: center;
     
 }
-.boton input{
+
+.boton button{
     text-align: center;
     align-items: center;
     width: 90%;
@@ -81,8 +92,61 @@ body{
     font-size: 100%;
 }
 
-.boton input:hover{
+.boton button:hover{
     border: 1px solid black;
     background-color: green;
     transition: .3s;
+    cursor: pointer;
+}
+
+.registrar-button{
+    text-align: center;
+    font-size: 0.9em;
+    color: black;
+}
+
+.registrar-button a{
+    color: blueviolet;
+    text-decoration: none;
+}
+
+.registrar-button a:hover{
+    color: red;
+    text-decoration: underline;
+}
+
+
+.check{
+    text-align: center;
+    > input.error {
+        appearance: unset;
+        width: 12px;
+        height: 12px;
+        border-radius: 2px;
+        border: 1px solid #de1010;
+        background-color: #f9dada;
+    }
+}
+.check input:hover{
+    cursor: pointer;
+}
+
+
+#region{
+    color: gray;
+}
+#comuna{
+    color: gray;
+}
+
+
+.entrada select{
+    width: 90%;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.entrada select:hover{
+    cursor: pointer;
 }

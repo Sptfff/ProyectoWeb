@@ -350,6 +350,9 @@ function validaDV(rut) {
     // Se comienza la validación del formulario usando JQuery Validator
     $("#registro").validate({
       rules: {
+        nombre: {
+          required: true,
+        },
         email: {
           required: true,
           email: true,
@@ -357,20 +360,29 @@ function validaDV(rut) {
         password: {
           required: true,
         },
-        "confirm-password": {
+        "contrapass": {
           required: true,
           equalTo: "#password",
-        },
+        },        
         rut: {
           required: true,
           rut: true,
           rutdv: true,
         },
-        tyc: {
+        terminos: {
           required: true,
+        },
+        region:{
+          required: true,
+        },
+        comuna:{
+          required:true,
         },
       },
       messages: {
+        nombre: {
+          required: "El nombre es obligatorio",
+        },
         email: {
           required: "El email es obligatorio",
           email: "El email no es válido",
@@ -383,12 +395,18 @@ function validaDV(rut) {
           rut: "Formato: Sin puntos, con guión",
           rutdv: "El dígito verificador no es válido",
         },
-        "confirm-password": {
+        "contrapass": {
           required: "La confirmación de contraseña es requerida",
           equalTo: "Las contraseñas deben coincidir",
         },
-        tyc: {
+        terminos: {
           required: "",
+        },
+        region: {
+          required: "La región es obligatoria",
+        },
+        comuna: {
+          required: "La comuna es obligatoria",
         },
       },
       submitHandler: () => {
