@@ -3,11 +3,10 @@ $(document).ready(() => {
   
     // Se comienza la validación del formulario usando JQuery Validator
   
-    $("#inicio_sesion").validate({
+    $("#sesion").validate({
       rules: {
         nombre: {
           required: true,
-          nombre: true,
         },
         password: {
           required: true,
@@ -15,15 +14,15 @@ $(document).ready(() => {
       },
       messages: {
         nombre: {
-          required: "El email es obligatorio",
-          nombre: "El email no es válido",
+          required: "El nombre es obligatorio",
+          nombre: "El nombre no es válido",
         },
         password: {
           required: "La contraseña es obligatoria",
         },
       },
       submitHandler: () => {
-        const email = $("#nombre").val();
+        const nombre = $("#nombre").val();
         const password = $("#password").val();
         console.table({ nombre, password });
       },

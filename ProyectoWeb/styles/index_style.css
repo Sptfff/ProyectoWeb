@@ -51,4 +51,6 @@
     text-align: center;
 }
 
-  
+.inicio ul li{
+    list-style-type: none;
+}
