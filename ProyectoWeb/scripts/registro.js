@@ -1,3 +1,7 @@
+/*SCRIPT JS PARA VALIDAR EL registro DE USUARIO */
+
+
+/*función para validar el digito verificador del rut de un usuario:*/
 function validaDV(rut) {
     // Se separa el número del dígito verificador
     const [numero, dv] = rut.replace("-K", "-k").split("-");
@@ -37,7 +41,7 @@ function validaDV(rut) {
     "El dígito verificador del RUT es inválido"
   );
   
-  $(document).ready(() => {
+  $(document).ready(() => { // si el documento ha cargado ... muestra el mensaje por consola
     console.log("registro.js cargado");
   
     // Se cargan las comunas de Chile
@@ -349,7 +353,7 @@ function validaDV(rut) {
     });
     // Se comienza la validación del formulario usando JQuery Validator
     $("#registro").validate({
-      rules: {
+      rules: { // las reglas de qué campos son obligatorios llenar: nombre, email, password, etc.
         nombre: {
           required: true,
         },
@@ -362,7 +366,7 @@ function validaDV(rut) {
         },
         "contrapass": {
           required: true,
-          equalTo: "#password",
+          equalTo: "#password", // la contraseña tiene que ser igual a su confirmación
         },        
         rut: {
           required: true,
@@ -409,7 +413,7 @@ function validaDV(rut) {
           required: "La comuna es obligatoria",
         },
       },
-      submitHandler: () => {
+      submitHandler: () => { /* creamos una tabla de valores con los datos del usuario y los mostramos por consola */
         const email = $("#email").val();
         const password = $("#password").val();
         console.table({ email, password });
