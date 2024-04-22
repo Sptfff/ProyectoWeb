@@ -1,5 +1,5 @@
 # ProyectoWeb
-- link prototipo: https://www.figma.com/file/2xNuZfibpFdbDQ9VtaBqgB/Untitled?type=design&node-id=0%3A1&mode=design&t=0oEfFEiT1xFCTeIb-1
+- link prototipo: [https://www.figma.com/file/2xNuZfibpFdbDQ9VtaBqgB/Untitled?type=design&node-id=0%3A1&mode=design&t=0oEfFEiT1xFCTeIb-1](https://www.figma.com/proto/2xNuZfibpFdbDQ9VtaBqgB/Untitled?type=design&node-id=1-11&t=eNI4Gmx6vYweMt8D-1&scaling=scale-down&page-id=0%3A1&mode=design)
 - link repositorio: https://github.com/Sptfff/ProyectoWeb
 
 ## Integrantes:
