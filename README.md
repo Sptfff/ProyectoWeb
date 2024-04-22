@@ -1,5 +1,6 @@
 # ProyectoWeb
-Entrega 1
+- link prototipo: https://www.figma.com/file/2xNuZfibpFdbDQ9VtaBqgB/Untitled?type=design&node-id=0%3A1&mode=design&t=0oEfFEiT1xFCTeIb-1
+- link repositorio: https://github.com/Sptfff/ProyectoWeb
 
 ## Integrantes:
 - Cristofer Contreras
@@ -8,9 +9,9 @@ Entrega 1
 - Matías Romero
 
 ## Descripción
-Nuestro proyecto consta de una aplicación web, que puede ayudar al cuidado de la salud y la alimentación (TEMA 1 Escogido).
-Basicamente se trata de que el usuario pueda tener un control de los alimentos que consume en su día a día, teniendo presente las calorías y macro nutrientes de cada alimento. 
-La aplicación dispondría de una sugerencia de calorías y macro nutrientes a consumir en el día de manera personalizada para el usuario, con distintos factores como sus medidas físicas, nivel de actividad física y objetivo nutricional. 
+* Nuestro proyecto consta de una aplicación web, que puede ayudar al cuidado de la salud y la alimentación (TEMA 1 Escogido).
+* Basicamente se trata de que el usuario pueda tener un control de los alimentos que consume en su día a día, teniendo presente las calorías y macro nutrientes de cada alimento. 
+* La aplicación dispondría de una sugerencia de calorías y macro nutrientes a consumir en el día de manera personalizada para el usuario, con distintos factores como sus medidas físicas, nivel de actividad física y objetivo nutricional. 
 
 ## Funcionalidades
 La aplicación dispone de las siguientes funcionalidades:
