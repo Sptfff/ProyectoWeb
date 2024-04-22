@@ -1,3 +1,5 @@
+/*ESTILO DE registro*/
+/*Cambia el color de fondo del cuerpo del documento a amarillo en pantallas con un ancho máximo de 768px.*/
 @media screen and(max-width: 768px){
     body{
         background-color: yellow;
@@ -13,7 +15,7 @@ body{
     position: absolute;
     top: 70%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);/*CENTRA EL FORMULARIO*/
     width: 400px;
     background-color: white;
     border-radius: 10px;
@@ -49,7 +51,7 @@ body{
     transition: 0.2s ease-out;
     pointer-events: none;
 }
-
+/*CAMBIA EL ESTILO DE UN LABEL AL SER MOSTRADO (AL MOSTRAR VALIDACIONES DE JS POR EJEMPLO)*/
 .entrada input:focus + label, 
 .entrada input:placeholder-shown + label {
     transform: translateY(-200%);
@@ -65,7 +67,7 @@ body{
     transition: 0.2s ease-out;
     pointer-events: none;
 }
-
+/*CAMBIA EL ESTILO DE UN LABEL AL SER MOSTRADO (AL MOSTRAR VALIDACIONES DE JS POR EJEMPLO)*/
 .entrada select:focus + label, 
 .entrada select:placeholder-shown + label {
     transform: translateY(-200%);

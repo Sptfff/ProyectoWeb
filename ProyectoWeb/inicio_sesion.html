@@ -6,24 +6,25 @@
         <title>Iniciar Sesión</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <link rel="stylesheet" href="styles/sesion.css">
         <link rel="stylesheet" href="styles/fonts.css">
-
+        
+        <!--JQUERY-->
         <script
-      src="https://code.jquery.com/jquery-3.7.1.min.js"
-      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
-    <script src="scripts/inicio_sesion.js"></script>
-
+                src="https://code.jquery.com/jquery-3.7.1.min.js"
+                integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+                crossorigin="anonymous"
+        ></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+        <!--JS PARA VALIDAR FORMULARIOS-->
+        <script src="scripts/inicio_sesion.js"></script>
     </head>
     <body>
-
         <div class="formulario">
             <h1>Iniciar Sesión</h1>
             
-            <form id="sesion" >
+            <form id="sesion" ><!--FORMULARIO CON DISTINTAS ENTRADAS-->
                 <div class="entrada">
                     <input type="text" id="nombre" name="nombre" placeholder="Nombre de Usuario">
                 </div>
@@ -33,7 +34,8 @@
                 <div class="boton">
                     <button type="submit">Iniciar Sesión</button>
                 </div>
-                <div class="registrar-button">
+
+                <div class="registrar-button"><!--BOTON PARA REGISTRO DE USUARIOS-->
                     <p>Si no posees una cuenta, puedes <a href="registro.html">registrarte</a></p>
                 </div>
             </form>

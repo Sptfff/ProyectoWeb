@@ -6,6 +6,7 @@
         <title>Editar Perfil</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <link rel="stylesheet" href="styles/editar_perfil_style.css">
         <link rel="stylesheet" href="styles/fonts.css">
     </head>
@@ -13,8 +14,9 @@
         <div class="formulario">
             <h1>Editar Perfil</h1>
             
-            <form id="editarPerfil" method="post">
-                <div class="radioBut">
+            <form id="editarPerfil" method="post"><!--FORMULARIO EDITAR INFO DE USUARIO-->
+                
+                <div class="radioBut"> <!--SELECCIONA SEXO-->
                     <input type="radio" id="sexoHombre" name="sexo" value="Hombre">
                     <label for="sexoHombre">Hombre</label>
                     <input type="radio" id="sexoMujer" name="sexo" value="Mujer">
@@ -40,7 +42,7 @@
                     </div> 
                 </div>
 
-                <div class="radioBut">
+                <div class="radioBut"><!--SELECCIONA OBJETIVO NUTRICIONAL-->
                     <p>¿Qué objetivo tienes?</p>
                     <input type="radio" id="bajarPeso" name="objetivo" value="Bajar de Peso">
                     <label for="bajarPeso">Bajar de Peso</label>
@@ -50,7 +52,7 @@
                     <label for="ganarMasaMuscular">Ganar Masa Muscular</label>
                 </div>
 
-                <div class="radioBut">
+                <div class="radioBut"><!--SELECCIONA NIVEL DE ACTIVIDAD FÍSICA-->
                     <p>Nivel de Actividad Física</p>
                     <input type="radio" id="Ligero" name="nivelAct" value="Ligero">
                     <label for="Ligero">Ligero (1-2 días x semana)</label>

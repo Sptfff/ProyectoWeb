@@ -1,3 +1,7 @@
+/*ESTE ARCHIVO CORRESPONDE A LA HOJA DE ESTILOS DEL BUSCADOR O BARRA BUSCADORA*/
+
+/*AJUSTA LA DISPOSICIÓN DE LOS ITEMS (FLEX) Y LES DA DIMENSIONES Y TAMAÑOS A CADA OBJETO*/
+
 .content {
     display: flex;
     margin-top: 20px; 
@@ -49,6 +53,7 @@
     text-align: center;
 }
 
+/*--------------------------BOTON----------------------------*/
 .content .buscar button{    
     font-size: 15px;
     font-family: Josefin-Sanz;
@@ -57,7 +62,7 @@
     justify-content: center;
     height: 30px;
 }
-.content .buscar button:hover{
+.content .buscar button:hover{ /*CUANDO PASEMOS EL MOUSE POR SOBRE EL BOTÓN*/
     transition: .3s;
     cursor: pointer;
     color: red;
