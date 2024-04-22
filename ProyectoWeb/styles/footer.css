@@ -1,3 +1,7 @@
+/*HOJA DE ESTILOS CORRESPONDIENTE AL FOOTER*/
+
+/*AJUSTA EL TAMAÑO Y LA DISPOSICIÓN (FLEX) DE LOS ELEMENTOS DEL FOOTER*/
+
 footer{
     display: flex;
     justify-content: space-between;
@@ -13,7 +17,7 @@ footer ul{
     text-align: center;
 }
 footer ul li{
-    list-style-type: none;
+    list-style-type: none; /*QUITAMOS EL PUNTEADO DE LOS ELEMENTOS DE LA LISTA*/
     display: inline-block;
     padding: 10px 20px;
 }

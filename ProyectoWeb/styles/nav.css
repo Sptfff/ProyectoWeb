@@ -1,3 +1,8 @@
+/*HOJA DE ESTILOS CORRESPONDIENTE AL ESTILO DEL NAV DE LA APLICACIÓN*/
+/*CONTIENE TAMBIÉN EL ESTILO GENERAL DEL BODY*/
+
+
+/*-----------ESTILO DEL BODY------------*/
 body{
     font-family: Josefin-Sanz;
     background-color: whitesmoke;
@@ -10,6 +15,8 @@ body{
     width: 100%;
     box-sizing: border-box;
 }
+
+/*------------------ESTILO DEL NAV-----------------*/
 nav{
     display: flex;
     align-items: center;
