@@ -1,6 +1,8 @@
 import React from 'react'
 
 import { IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react';
+import { IonHeader, IonSearchbar, IonTitle, IonToolbar } from '@ionic/react';
+
 import { home, personOutline } from 'ionicons/icons';
 
 import { Redirect, Route } from 'react-router';
@@ -25,11 +27,11 @@ const tabsRoutes: AppRoute[] = [
     {
         path: '/nav/inicio',
         component: <Inicio />,
-        exact: true,
     },
     {
         path: '/nav/cuenta',
         component: <Cuenta />,
+        exact: true,
     },
     {
         path: '/nav',
@@ -61,6 +63,7 @@ const Nav: React.FC = () => (
           </Route>
         ))}
       </IonRouterOutlet>
+      
       <IonTabBar slot='bottom'>
         {tabButtons.map((tabButton) => (
           <IonTabButton key={tabButton.tab} tab={tabButton.tab} href={tabButton.href}>
