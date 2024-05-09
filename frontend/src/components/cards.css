@@ -1,0 +1,11 @@
+.cartas .cardHeader{
+    display: flex;
+}
+.cartas .cardHeader img{
+    width: 100px;
+    height: 100px;
+ }
+
+.cartas .letra{
+    font-size: 0.6em;
+}

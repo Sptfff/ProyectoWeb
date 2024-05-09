@@ -1,59 +1,40 @@
-import React from 'react'
+import React from 'react';
 import { 
   IonHeader, IonPage, IonTitle, IonToolbar,IonMenuButton, 
-  IonButtons,IonMenu,IonContent,IonButton, IonList,
-  IonItem, IonLabel
+  IonButtons,IonMenu,IonContent
  } from '@ionic/react';
+import AgregarButton from '../components/AgregarButton';
+import HistorialButton from '../components/HistorialButton';
 import './Inicio.css';
 
+import Macros from '../components/Macros'
+import Calorias from '../components/Calorias'
+
+const caloriasConsumidas = 1500;
+const caloriasMeta = 2000;
+const proteinasConsumidas = 50;
+const grasasConsumidas = 30;
+const carbohidratosConsumidos = 150;
 
 const Inicio: React.FC = () => {
   return (
-    <div>
-        <IonMenu contentId="main-content">
-        <IonHeader>
-          <IonToolbar>
-            <IonTitle>Menu Content</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <IonContent className="ion-padding">This is the menu content.</IonContent>
-      </IonMenu>
-      <IonPage id="main-content">
-        <IonHeader>
-          <IonToolbar>
-            <IonButtons slot="start">
-              <IonMenuButton></IonMenuButton>
-            </IonButtons>
-            <IonTitle>Inicio</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <IonContent>
-          <div className='center-content'>
-            <IonButton>Añadir Comida</IonButton>
-            <h2> <strong>Tus Macro Nutrientes de Hoy:</strong></h2>
-            <IonList lines="none">
-                <IonItem className='item'>
-                    <IonLabel>Proteinas: 0/100 g</IonLabel>
-                </IonItem>
-                <IonItem className='item'>
-                    <IonLabel>Grasas:0/100 g</IonLabel>
-                </IonItem>
-                <IonItem className='item'>
-                    <IonLabel>Carbohidratos: 0/100 g</IonLabel>
-                </IonItem>
-            </IonList>
-            <h1> <strong>Calorías Consumidas Hoy:</strong></h1>
-            <IonList lines="none">
-                <IonItem className='item'>
-                  <IonLabel>0/3000 cal.</IonLabel>
-                </IonItem>
-            </IonList>
-            <IonButton>Historial de Comidas de Hoy</IonButton>
-          </div>
-          
-        </IonContent>
-      </IonPage>
-    </div>
+    <IonPage>
+      <IonHeader>
+        <IonToolbar>
+          <IonTitle>Inicio</IonTitle>
+        </IonToolbar>
+      </IonHeader>
+      <IonContent>
+        <div className='center-content'>
+          <AgregarButton onClick={() => {/* Lógica para el botón de añadir comida */}} />
+          <Macros proteinas={proteinasConsumidas} 
+                  grasas={grasasConsumidas} 
+                  carbohidratos={carbohidratosConsumidos}/>
+          <Calorias caloriasConsumidas={caloriasConsumidas} caloriasMeta={caloriasMeta} />
+          <HistorialButton onClick={() => {/* Lógica para el botón de historial de comidas */}} />
+        </div>
+      </IonContent>
+    </IonPage>
   );
 };
 

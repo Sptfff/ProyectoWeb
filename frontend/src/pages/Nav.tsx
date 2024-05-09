@@ -1,14 +1,14 @@
 import React from 'react'
 
 import { IonIcon, IonLabel, IonRouterOutlet, IonTabBar, IonTabButton, IonTabs } from '@ionic/react';
-import { IonHeader, IonSearchbar, IonTitle, IonToolbar } from '@ionic/react';
 
-import { home, personOutline } from 'ionicons/icons';
+import { home, personOutline, restaurant, restaurantOutline } from 'ionicons/icons';
 
 import { Redirect, Route } from 'react-router';
 
 import Inicio from './Inicio';
 import Cuenta from './Cuenta';
+import ComidasRouter from './ComidasRouter'
 
 interface AppRoute {
     path: string;
@@ -34,6 +34,10 @@ const tabsRoutes: AppRoute[] = [
         exact: true,
     },
     {
+        path: '/nav/comidas',
+        component: <ComidasRouter />,
+    },
+    {
         path: '/nav',
         component: <Redirect to='/nav/inicio' />,
         exact: true,
@@ -42,10 +46,16 @@ const tabsRoutes: AppRoute[] = [
 
 const tabButtons: TabsRouterTabButton[] = [
     {
-      tab: 'inicio',
-      href: '/nav/inicio',
-      icon: home,
-      label: 'Inicio',
+        tab: 'inicio',
+        href: '/nav/inicio',
+        icon: home,
+        label: 'Inicio',
+    },
+    {
+      tab: 'comidas',
+      href: '/nav/comidas',
+      icon: restaurantOutline,
+      label: 'Comidas',
     },
     {
         tab: 'mi-cuenta',
@@ -53,6 +63,7 @@ const tabButtons: TabsRouterTabButton[] = [
         icon: personOutline,
         label: 'Mi cuenta',
     },
+    
 ];
 const Nav: React.FC = () => (
     <IonTabs>
