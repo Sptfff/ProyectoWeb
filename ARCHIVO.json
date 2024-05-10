@@ -1,0 +1,114 @@
+
+    {
+        "nombre": "MANZANA",
+        "categoria": "frutas",
+        "calorias": 52,
+        "proteinas": "0.2g",
+        "grasas": "0.3g",
+        "carbohidratos": "10.8g"
+    }
+    {
+        "nombre": "PERA",
+        "categoria": "frutas",
+        "calorias": 57,
+        "proteinas": "0.3g",
+        "grasas": "01g",
+        "carbohidratos": "12.5g"
+    }
+    {
+        "nombre": "PLATANO",
+        "categoria": "frutas",
+        "calorias": 87,
+        "proteinas": "0.6",
+        "grasas": "0.2g",
+        "carbohidratos": "12.4g"
+    }
+    {
+        "nombre": "FRUTILLA",
+        "categoria": "frutas",
+        "calorias": 25,
+        "proteinas": "1g.",
+        "grasas": "0g",
+        "carbohidratos": "8g"
+    }
+    {
+        "nombre": "HUEVO",
+        "categoria": "alimento proteico",
+        "calorias": 79,
+        "proteinas": "6.9g",
+        "grasas": "5.2g",
+        "carbohidratos": "0.4g"
+    }
+    {
+        "nombre": "ARROZ",
+        "categoria": "cereales y derivados",
+        "calorias": 130,
+        "proteinas": "2g",
+        "grasas": "0g",
+        "carbohidratos": "29g"
+    }
+    {
+        "nombre": "FIDEOS",
+        "categoria": "pastas",
+        "calorias": 138,
+        "proteinas": "4.5g",
+        "grasas": "2.1g",
+        "carbohidratos": "25g"
+    }
+    {
+        "nombre": "PURÉ",
+        "categoria": "cereales y derivados",
+        "calorias": 88,
+        "proteinas": "3.8g",
+        "grasas": "7.4g",
+        "carbohidratos": "33g"
+    }
+    {
+        "nombre": "CARNE DE POLLO",
+        "categoria": "carnes",
+        "calorias": 167,
+        "proteinas": "30g",
+        "grasas": "7.7g",
+        "carbohidratos": "0.1g"
+    }
+    {
+        "nombre": "VACUNO",
+        "categoria": "carnes",
+        "calorias": 271,
+        "proteinas": "26.4g",
+        "grasas": "19.3g",
+        "carbohidratos": "0.1g"
+    }
+    {
+        "nombre": "CERDO",
+        "categoria": "carnes",
+        "calorias": 136,
+        "proteinas": "27.3g",
+        "grasas": "17g",
+        "carbohidratos": "0.1g"
+    }
+    {
+        "nombre": "LATA DE ATUN",
+        "categoria": "pescado",
+        "calorias": 144,
+        "proteinas": "25.5g",
+        "grasas": "0.8g",
+        "carbohidratos": "0.1g"
+    }
+    {
+        "nombre": "TOMATE",
+        "categoria": "frutas",
+        "calorias": 88,
+        "proteinas": "0.9g",
+        "grasas": "0.2g",
+        "carbohidratos": "3.9g"
+    }
+    {
+        "nombre": "BETARRAGA",
+        "categoria": "verduras",
+        "calorias": 35,
+        "proteinas": "1.3g",
+        "grasas": "0.1g",
+        "carbohidratos": "7.8g"
+    }
+
