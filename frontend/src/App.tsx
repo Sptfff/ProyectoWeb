@@ -2,6 +2,8 @@ import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import Nav from './pages/Nav';
+import InicioSesion from './pages/InicioSesion'
+import Registro from './pages/Registro'
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -44,6 +46,12 @@ const App: React.FC = () => (
         </Route>
         <Route exact path="/">
           <Redirect to="/nav" />
+        </Route>
+        <Route path="/inicioSesion">
+          <InicioSesion />
+        </Route>
+        <Route path="/registro">
+          <Registro />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>

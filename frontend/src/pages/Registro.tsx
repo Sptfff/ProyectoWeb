@@ -2,17 +2,17 @@ import React from 'react'
 import { IonHeader, IonContent, IonTitle, IonToolbar, IonPage,IonButtons, IonMenuButton,IonMenu} from '@ionic/react';
 import IniciarSesionButton from '../components/IniciarSesionButton';
 
-const Cuenta: React.FC = () => {
+const Registro: React.FC = () => {
   return (
     <div>
       <IonPage id="main-content">
-        ola esta es la página d las cuentas
+        REGISTROOOOOOOOOO SEÑORES
         <IonContent>
-          <IniciarSesionButton onClick={() => {/* Lógica para el botón de añadir comida */}} />
+          Ola pa
         </IonContent>
       </IonPage>
     </div>
   )
 }
 
-export default Cuenta;
+export default Registro;
