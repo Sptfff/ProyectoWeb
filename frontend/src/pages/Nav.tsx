@@ -9,6 +9,7 @@ import { Redirect, Route } from 'react-router';
 import Inicio from './Inicio';
 import Cuenta from './Cuenta';
 import ComidasRouter from './ComidasRouter'
+import CuentaRouter from './CuentaRouter';
 
 interface AppRoute {
     path: string;
@@ -30,8 +31,7 @@ const tabsRoutes: AppRoute[] = [
     },
     {
         path: '/nav/cuenta',
-        component: <Cuenta />,
-        exact: true,
+        component: <CuentaRouter />,
     },
     {
         path: '/nav/comidas',
