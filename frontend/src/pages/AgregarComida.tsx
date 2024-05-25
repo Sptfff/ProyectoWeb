@@ -1,66 +1,48 @@
-import React, { useState } from 'react'
-import { IonPage, IonTitle,IonContent,IonHeader,IonToolbar,IonButtons, IonButton, IonItem, IonLabel, IonInput, IonGrid, IonRow, IonCol  } from '@ionic/react'
-import MostrarComidas from '../components/MostrarComidas'
-import {useHistory} from 'react-router-dom'; // Importa useHistory para manejar la navegación
+import React from 'react';
+import ComidaCard, { ComidaType} from '../components/ComidaCard';
+
+import { IonPage, IonTitle, IonContent, IonImg, IonHeader, IonToolbar, IonButton, IonInput, IonItem, IonLabel } from '@ionic/react';
+import MostrarComidas from '../components/MostrarComidas';
+import { IonIcon } from '@ionic/react';
+import { addCircleOutline,arrowBack } from 'ionicons/icons';
+import logo from '../logo/logo.png' 
+import './Header.css'
+import { useHistory } from 'react-router-dom';
 
 const AgregarComida: React.FC = () => {
-  const history = useHistory(); // Obtiene el objeto history para manejar la navegación
-  const [comidas, setComidas] = useState([]);
-  const [nombre, setNombre] = useState('');
-  const [descripcion, setDescripcion]= useState('');
-
-  const handleAgregarComida = () => {
-    if(!nombre || !descripcion){
-      alert('Por favor ingrese el nombre y la descripción de la comida.');
-      return;
-    }
-    // Agregar la comida a la lista de comidas
-    const nuevaComida = {
-      nombre: nombre,
-      descripcion: descripcion
-    };
-    setComidas([...comidas, nuevaComida]);
-
-    // Limpiar los campos de texto
-    setNombre('');
-    setDescripcion('');
-
-  }
-  const handleVolver=() => {
-    history.goBack(); // Función para volver a la página anterior
+  const history = useHistory();
+  const handleIconClick = () => {
+    history.push('/nav/comidas');
   };
-
+  const handleAgregarComidaSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Aquí puedes agregar la lógica para procesar los datos del formulario
+    console.log("Se ha enviado el formulario para agregar una nueva comida");
+  };
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
-          <IonButtons slot="start">
-            <IonButton onClick={() => history.goBack()}>Volver</IonButton>
-          </IonButtons>
+        <IonToolbar className='Toolbar'>
+          <IonIcon color='primary' onClick={handleIconClick} icon={arrowBack} className='h-6 w-6' slot="start"/>
+          <IonImg className='Img' slot="start" src={logo} alt=""  />
           <IonTitle>Agregar Comida</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <MostrarComidas comidas={comidas} />
-      <IonContent className="ion-padding">
-        <p>Miren, todo esto tenemos para agregar, es humilde pero trabajo honesto :3</p>
-        <IonItem>
-          <IonLabel position="floating">Nombre de la comida</IonLabel>
-          <IonInput value={nombre} onIonChange={(e) => setNombre(e.detail.value!)}></IonInput>
-        </IonItem>
-        <IonItem>
-          <IonLabel position="floating">Descripción de la comida</IonLabel>
-          <IonInput value={descripcion} onIonChange={(e) => setDescripcion(e.detail.value!)}></IonInput>
-        </IonItem>
-        <IonButton expand="block" onClick={handleAgregarComida}>Agregar comida</IonButton>
-        <IonGrid>
-          <IonRow className="ion-justify-content-center">
-            <IonCol size="auto">
-              <IonButton onClick={() => console.log('Agregar otro alimento')}>Agregar otro alimento</IonButton>
-            </IonCol>
-          </IonRow>
-        </IonGrid>
-        
-      </IonContent>
+      <IonContent>
+        <form onSubmit={handleAgregarComidaSubmit}>
+            <IonItem lines="none" style={{ maxWidth: '300px', marginLeft: '20px' }}>
+              <IonInput placeholder='Ingrese Comida (ej: manzana)' type="text" required></IonInput>
+            </IonItem>
+            <IonItem lines="none" style={{ maxWidth: '300px', marginLeft: '20px' }}>
+              <IonInput placeholder='Ingrese Cantidad' type="number" required></IonInput>
+            </IonItem>
+            <IonButton type="submit" expand="block" color={'success'}>
+              <IonIcon icon={addCircleOutline} slot="start" />
+              Agregar Una Comida
+            </IonButton>
+          </form>
+        <MostrarComidas/>
+      </IonContent> 
     </IonPage>
   );
 };

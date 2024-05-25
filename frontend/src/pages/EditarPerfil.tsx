@@ -1,27 +1,32 @@
-import { IonContent, IonHeader,IonButton, IonTabBar,IonPage, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
+import { IonContent, IonHeader, IonButton, IonPage, IonTitle, IonToolbar,IonImg } from '@ionic/react';
+import './Header.css'
+import logo from '../logo/logo.png'
 
-
-const EditarPerfil: React.FC = () => {
-  console.log('editar');
-  return (
-    <div>
-      <IonPage>
-        <IonHeader>
-          <IonToolbar>
-            <IonTitle>Editar Perfil</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <IonContent>
-          Ola, este es la página de editar perfil, aki va el html jeje
-          <IonButton color={'primary'} expand='block' 
-                      routerLink='/nav/cuenta/' routerDirection="none">
-            Guardar Cambios
-          </IonButton>
-        </IonContent>
-      </IonPage>
-    </div>
-  )
+interface EditarPerfilProps {
+  onSave: () => void;
+  onCancel: () => void;
 }
 
+const EditarPerfil: React.FC<EditarPerfilProps> = ({ onSave, onCancel }) => {
+  return (
+    <IonPage>
+      <IonHeader>
+        <IonToolbar className='Toolbar'>
+          <IonTitle>Editar Perfil</IonTitle>
+          <IonImg slot="start" className='Img' src={logo} alt=""  />
+        </IonToolbar>
+      </IonHeader>
+      <IonContent>
+        <p>Ola, esta es la página de editar perfil, aquí va el html jeje</p>
+        <IonButton color='primary' expand='block' onClick={onSave}>
+          Guardar Cambios
+        </IonButton>
+        
+      </IonContent>
+    </IonPage>
+  );
+};
+
 export default EditarPerfil;
+

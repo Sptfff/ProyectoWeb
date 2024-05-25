@@ -1,0 +1,144 @@
+{
+    "comidas": [
+        {
+            "title": "MANZANA",
+            "id": 1,
+            "type": "frutas",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDHPP4Z_Vp484iQsLe4ddsi0awFwvLGWeU5XULZbCxqQ&s",
+            "calorias": 52,
+            "proteinas": 0.2,
+            "grasas": 0.3,
+            "carbohidratos": 10.8
+        },
+        {
+            "title": "PERA",
+            "id": 2,
+            "type": "frutas",
+            "image": "https://juanesparraguito.com/cdn/shop/files/FotosWeb_parte1_Mesadetrabajo1copia77_1024x1024@2x.jpg?v=1710855795",
+            "calorias": 57,
+            "proteinas": 0.3,
+            "grasas": 0.1,
+            "carbohidratos": 12.5
+        },
+        {
+            "title": "PLATANO",
+            "id": 3,
+            "type": "frutas",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiUtmUuYo7fpH0jU-6cbrHLbvVNhaNWdA7h_ZKkre7Lv7CWc6FpQs9D2mJXXInRfNw1J4&usqp=CAU",
+            "calorias": 87,
+            "proteinas": 0.6,
+            "grasas": 0.2,
+            "carbohidratos": 12.4
+        },
+        {
+            "title": "FRUTILLA",
+            "id": 4,
+            "type": "frutas",
+            "image": "https://lh6.googleusercontent.com/proxy/GTE7Ybjq9M3n4YurpOT-8QZPBbXaKY5-gOeTEBir-Ml6gZyb5MdwkiSTcw0B1xSw2--HaGHPomPWLu-yiFu_gjC-V_W3ADRPzMvgmsaZGBx3GnEGIBG3B6us3OkAkfDHKA",
+            "calorias": 25,
+            "proteinas": 1,
+            "grasas": 0,
+            "carbohidratos": 8
+        },
+        {
+            "title": "HUEVO",
+            "id": 5,
+            "type": "alimento proteico",
+            "image": "https://cdnx.jumpseller.com/minimarket-abril/image/37783996/thumb/1000/1000?1689778154",
+            "calorias": 79,
+            "proteinas": 6.9,
+            "grasas": 5.2,
+            "carbohidratos": 0.4
+        },
+        {
+            "title": "ARROZ",
+            "id": 6,
+            "type": "cereales y derivados",
+            "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcT4snZIE5jNdBwVf9E9iM-6VVLSwpz-Piv8whTqjIHQ&s",
+            "calorias": 130,
+            "proteinas": 2,
+            "grasas": 0,
+            "carbohidratos": 29
+        },
+        {
+            "title": "TALLARINES",
+            "id": 7,
+            "type": "pastas",
+            "image": "https://static.vecteezy.com/system/resources/previews/030/493/842/non_2x/instant-noodles-isolated-on-white-background-clipping-path-included-ai-generated-free-photo.jpg",
+            "calorias": 138,
+            "proteinas": 4.5,
+            "grasas": 2.1,
+            "carbohidratos": 25
+        },
+        {
+            "title": "PURÉ",
+            "id": 8,
+            "type": "cereales y derivados",
+            "image": "https://img.freepik.com/fotos-premium/pure-de-batata-em-fundo-branco-gerado-por-ia_985692-660.jpg",
+            "calorias": 88,
+            "proteinas": 3.8,
+            "grasas": 7.4,
+            "carbohidratos": 33
+        },
+        {
+            "title": "PECHUGA DE POLLO",
+            "id": 9,
+            "type": "carnes",
+            "image": "https://media.istockphoto.com/id/643362510/es/foto/parcialmente-rodajas-de-pechuga-de-pollo-a-la-parrilla-con-pimienta-negra.jpg?s=612x612&w=0&k=20&c=INhxbWThRGEhu0luQxFh3X5tuDiUC6RwSRHcCiZPbPg=",
+            "calorias": 167,
+            "proteinas": 30,
+            "grasas": 7.7,
+            "carbohidratos": 0.1
+        },
+        {
+            "title": "BISTEC DE VACUNO",
+            "id": 10,
+            "type": "carnes",
+            "image": "https://www.shutterstock.com/image-photo/grilled-beef-steak-isolated-on-600nw-1572061456.jpg",
+            "calorias": 271,
+            "proteinas": 26.4,
+            "grasas": 19.3,
+            "carbohidratos": 0.1
+        },
+        {
+            "title": "FILETE DE CERDO",
+            "id": 11,
+            "type": "carnes",
+            "image": "https://www.shutterstock.com/image-photo/baked-pork-slices-isolated-roasted-600nw-2217776461.jpg",
+            "calorias": 136,
+            "proteinas": 27.3,
+            "grasas": 17,
+            "carbohidratos": 0.1
+        },
+        {
+            "title": "LATA DE ATUN",
+            "id": 12,
+            "type": "pescado",
+            "image": "https://img.freepik.com/fotos-premium/lata-abierta-carne-atun-aislado-sobre-fondo-blanco_857988-908.jpg",
+            "calorias": 144,
+            "proteinas": 25.5,
+            "grasas": 0.8,
+            "carbohidratos": 0.1
+        },
+        {
+            "title": "TOMATE",
+            "id": 13,
+            "type": "frutas",
+            "image": "https://superxtrapanama.vtexassets.com/arquivos/ids/162462/2701011000000.png?v=637896281157630000",
+            "calorias": 88,
+            "proteinas": 0.9,
+            "grasas": 0.2,
+            "carbohidratos": 3.9
+        },
+        {
+            "title": "BETARRAGA",
+            "id": 14,
+            "type": "verduras",
+            "image": "https://jumbo.vtexassets.com/arquivos/ids/252204/1555303.jpg?v=636698374142030000",
+            "calorias": 35,
+            "proteinas": 1.3,
+            "grasas": 0.1,
+            "carbohidratos": 7.8
+        }
+    ]
+}
