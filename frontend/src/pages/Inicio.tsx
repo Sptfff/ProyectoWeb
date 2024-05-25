@@ -1,14 +1,16 @@
 import React from 'react';
 import { 
   IonHeader, IonPage, IonTitle, IonToolbar,IonMenuButton, 
-  IonButtons,IonMenu,IonContent
+  IonButtons,IonMenu,IonContent, IonImg
  } from '@ionic/react';
 import AgregarButton from '../components/AgregarButton';
 import HistorialButton from '../components/HistorialButton';
 import './Inicio.css';
-
+import logo from '../logo/logo.png'; 
+import './Header.css'
 import Macros from '../components/Macros'
 import Calorias from '../components/Calorias'
+import './Header.css'
 
 const caloriasConsumidas = 1500;
 const caloriasMeta = 2000;
@@ -20,8 +22,9 @@ const Inicio: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
+        <IonToolbar className='Toolbar'>
           <IonTitle>Inicio</IonTitle>
+          <IonImg slot="start" className='Img' src={logo} alt=""  />
         </IonToolbar>
       </IonHeader>
       <IonContent>

@@ -4,6 +4,7 @@ import { IonReactRouter } from '@ionic/react-router';
 import Nav from './pages/Nav';
 import InicioSesion from './pages/InicioSesion'
 import Registro from './pages/Registro'
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -34,6 +35,7 @@ import '@ionic/react/css/palettes/dark.system.css';
 
 /* Theme variables */
 import './theme/variables.css';
+import EditarPerfil from './pages/EditarPerfil';
 
 setupIonicReact();
 
@@ -46,12 +48,6 @@ const App: React.FC = () => (
         </Route>
         <Route exact path="/">
           <Redirect to="/nav" />
-        </Route>
-        <Route path="/inicioSesion">
-          <InicioSesion />
-        </Route>
-        <Route path="/registro">
-          <Registro />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>
