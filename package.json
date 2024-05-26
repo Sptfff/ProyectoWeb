@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "express": "^4.19.2",
+    "ionic": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.12.12"
+  }
+}
