@@ -12,11 +12,10 @@ import {
   IonLabel,
   IonPage,
   IonRow,
-  IonSelect,
-  IonSelectOption,
   IonToggle,
   IonToolbar,
-  IonText,IonImg
+  IonText,
+  IonImg
 } from '@ionic/react';
 import { arrowBack } from 'ionicons/icons';
 import RegionComunaSelector from './RegionComunaSelector';
@@ -79,7 +78,7 @@ const Registro: React.FC<RegistroProps> = ({ back, login }: RegistroProps) => {
       newErrorMessages.rut = 'Por favor, ingrese su RUT.';
       valid = false;
     } else if (!/^[0-9]{7,8}-[0-9Kk]{1}$/.test(rut)) {
-      newErrorMessages.rut = 'El RUT ingresado es inválido.';
+      newErrorMessages.rut = 'El RUT ingresado es inválido. (ej: 123456789-0)';
       valid = false;
     } else if (!validaDV(rut)) {
       newErrorMessages.rut = 'El dígito verificador del RUT es inválido.';
@@ -87,6 +86,9 @@ const Registro: React.FC<RegistroProps> = ({ back, login }: RegistroProps) => {
     }
     if (!email) {
       newErrorMessages.email = 'Por favor, ingrese su email.';
+      valid = false;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      newErrorMessages.email = 'El email ingresado es inválido. (ej:alguien@example.com)';
       valid = false;
     }
     if (!region) {
@@ -185,34 +187,8 @@ const Registro: React.FC<RegistroProps> = ({ back, login }: RegistroProps) => {
                 {/* Mensajes de error para región y comuna */}
                 {errorMessages.region && <IonText color="danger">{errorMessages.region}</IonText>}
                 {errorMessages.comuna && <IonText color="danger">{errorMessages.comuna}</IonText>}
-                
-                {/*
+
                 <div>
-                  <IonLabel>Seleccione su región</IonLabel>
-                  <IonSelect
-                    placeholder='Ver regiones'
-                    value={region}
-                    onIonChange={(e) => setRegion(e.detail.value!)}
-                  >
-                    <IonSelectOption value='5'>Región de Valparaíso</IonSelectOption>
-                    <IonSelectOption value='13'>Región Metropolitana</IonSelectOption>
-                  </IonSelect>
-                  {errorMessages.region && <IonText color="danger">{errorMessages.region}</IonText>}
-                </div>
-                <div>
-                  <IonLabel>Seleccione su comuna</IonLabel>
-                  <IonSelect
-                    placeholder='Ver comunas'
-                    value={comuna}
-                    onIonChange={(e) => setComuna(e.detail.value!)}
-                  >
-                    <IonSelectOption value='1'>Comuna 1</IonSelectOption>
-                    <IonSelectOption value='2'>Comuna 2</IonSelectOption>
-                  </IonSelect>
-                  {errorMessages.comuna && <IonText color="danger">{errorMessages.comuna}</IonText>}
-                </div>*/}
-                <div>
-                  
                   <IonInput
                     placeholder='Ingrese su contraseña'
                     type='password'

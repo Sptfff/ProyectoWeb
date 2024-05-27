@@ -4,7 +4,7 @@ import { IonButton,IonRouterLink } from '@ionic/react';
 const AgregarButton: React.FC<{ onClick: () => void }> = ({ onClick }) => {
   return (
     <IonRouterLink routerLink={`/nav/comidas/agregar`} routerDirection="none">
-        <IonButton onClick={onClick}>
+        <IonButton expand='block' onClick={onClick}>
           Agregar Comida
         </IonButton>
     </IonRouterLink>

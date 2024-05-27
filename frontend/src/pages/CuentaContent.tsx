@@ -22,14 +22,17 @@ const CuentaContent: React.FC<CuentaContentProps> = ({ setLoggedOut, onEditProfi
             <IonTitle size="large">Mi cuenta</IonTitle>
           </IonToolbar>
         </IonHeader>
-        <p>Hola muy buenas, esta es la página de tu propia cuenta <br /></p>
-        <p>Aquí puedes editar tu perfil o cerrar tu sesión <br /></p>
-        <IonButton className="ion-margin-top ion-padding" color="danger" onClick={setLoggedOut}>
-          Cerrar sesión
-        </IonButton>
-        <IonButton className="ion-margin-top ion-padding" color="primary" onClick={onEditProfile}>
+        <p>Aquí podrás ver los datos de tu cuenta</p>
+        <p>Por ahora puedes editar tu perfil y Cerrar sesión</p>
+        <IonButton className="ion-margin-top ion-padding" color="primary" 
+                  expand='block' onClick={onEditProfile}>
           Editar perfil
         </IonButton>
+        <IonButton className="ion-margin-top ion-padding" 
+                    expand='block' color="danger" onClick={setLoggedOut}>
+          Cerrar sesión
+        </IonButton>
+        
       </IonContent>
     </IonPage>
   );

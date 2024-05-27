@@ -14,6 +14,7 @@ interface Comida {
     carbohidratos: number;
 }
 
+
 const mapCategoriaToComidaType = (categoria: string): ComidaType => {
     switch (categoria) {
         case 'frutas':

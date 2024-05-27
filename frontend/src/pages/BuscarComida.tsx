@@ -4,6 +4,7 @@ import MostrarComidas from '../components/MostrarComidas'
 import AgregarButton from '../components/AgregarButton'
 import logo from '../logo/logo.png' 
 import './Header.css'
+import HistorialButton from '../components/HistorialButton'
 const BuscarComida: React.FC = () => {
   return (
     <div>
@@ -16,7 +17,8 @@ const BuscarComida: React.FC = () => {
         <IonSearchbar animated={true} placeholder="Buscar Comidas"></IonSearchbar>
       </IonHeader>
         <IonContent>
-          <AgregarButton onClick={() => {/* Lógica para el botón de añadir comida */}}/>
+          <AgregarButton onClick={() => {}}/>
+          <HistorialButton onClick={() => {}}/>
           <MostrarComidas/>
         </IonContent>
         

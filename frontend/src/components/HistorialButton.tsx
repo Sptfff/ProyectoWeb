@@ -4,7 +4,7 @@ import { IonButton,IonRouterLink } from '@ionic/react';
 const HistorialButton: React.FC<{ onClick: () => void }> = ({ onClick }) => {
   return (
     <IonRouterLink routerLink={`/nav/comidas/historial`} routerDirection="none">
-        <IonButton onClick={onClick}>
+        <IonButton expand='block' onClick={onClick}>
           Historial de Comidas
         </IonButton>
     </IonRouterLink>
