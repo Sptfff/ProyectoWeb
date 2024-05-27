@@ -160,7 +160,7 @@ const Registro: React.FC<RegistroProps> = ({ back, login }: RegistroProps) => {
                 </div>
                 <div>
                   <IonInput
-                    placeholder='Ingrese su RUT'
+                    placeholder='Ingrese su RUT (Sin punto y con guión)'
                     type='text'
                     value={rut}
                     onIonChange={(e) => setRut(e.detail.value!)}

@@ -1,6 +1,7 @@
 import React from 'react';
-import { IonContent, IonHeader, IonButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-
+import { IonContent, IonHeader, IonButton, IonPage, IonTitle, IonToolbar,IonImg } from '@ionic/react';
+import logo from '../logo/logo.png';
+import './Header.css';
 interface CuentaContentProps {
   setLoggedOut: () => void;
   onEditProfile: () => void; // Definición de la propiedad onEditProfile
@@ -10,8 +11,9 @@ const CuentaContent: React.FC<CuentaContentProps> = ({ setLoggedOut, onEditProfi
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
-          <IonTitle>Mi cuenta</IonTitle>
+      <IonToolbar className='Toolbar'>
+          <IonImg slot="start" className='Img' src={logo} alt=""/>
+              <IonTitle>Mi cuenta</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
@@ -21,7 +23,7 @@ const CuentaContent: React.FC<CuentaContentProps> = ({ setLoggedOut, onEditProfi
           </IonToolbar>
         </IonHeader>
         <p>Hola muy buenas, esta es la página de tu propia cuenta <br /></p>
-        <p>Próximamente podrás editar tu perfil. Por ahora solo puedes cerrar sesión: <br /></p>
+        <p>Aquí puedes editar tu perfil o cerrar tu sesión <br /></p>
         <IonButton className="ion-margin-top ion-padding" color="danger" onClick={setLoggedOut}>
           Cerrar sesión
         </IonButton>

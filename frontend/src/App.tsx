@@ -5,7 +5,6 @@ import Nav from './pages/Nav';
 import InicioSesion from './pages/InicioSesion'
 import Registro from './pages/Registro'
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
-
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
