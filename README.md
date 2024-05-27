@@ -1,11 +1,6 @@
 # ProyectoWeb
-
-### La carpeta 'otros' contiene la mención de los patrones de diseño y el modelo relacional de la BD que utilizaremos.
-En la próxima entrega, pretendemos trabajar con:
-- El SGBD 'My SQL'.
-- El framework de backend Django con Python
 - link prototipo: [https://www.figma.com/file/2xNuZfibpFdbDQ9VtaBqgB/Untitled?type=design&node-id=0%3A1&mode=design&t=0oEfFEiT1xFCTeIb-1](https://www.figma.com/proto/2xNuZfibpFdbDQ9VtaBqgB/Untitled?type=design&node-id=1-11&t=eNI4Gmx6vYweMt8D-1&scaling=scale-down&page-id=0%3A1&mode=design)
-  
+
 ## Integrantes:
 - Cristofer Contreras
 - Luciano Cubillos
@@ -33,15 +28,11 @@ La aplicación dispone de las siguientes funcionalidades:
 1. Abrir el repositorio: https://github.com/Sptfff/ProyectoWeb
 2. Dar click en 'code' y luego copiar el URL del proyecto para clonarlo en su dispositivo
 3. Abrir Git Bash y clonar el repositorio utilizando el siguiente: 'git clone https://github.com/Sptfff/ProyectoWeb.git'
-4. Instalar y/o abrir VSCode.
-5. Abrir el proyecto ProyectoWeb en VSCode.
-6. Abrir terminal <cmd>.
-7. Entrar en la terminal a la carpeta de frontend (comando: cd frontend).
-8. Escribir en la terminal el comando de ionic: ionic serve
-9. Instalar paquetes recomendados en la terminal (Vite)
-10. Se abrirá la página de inicio en tu navegador y podrás navegarla
+4. Al tener clonado el repositorio puede abrir la carpeta de proyecto web y estarán los archivos html y otras carpetas
+5. Para ejecutarlo puede abrir (doble click) los archivos HTML y se abrirán en su navegador web
+6. También puede abrir VSCode y abrir cualquier archivo html, hacer click derecho y abrir con 'live server' (debería tener la extensión de live server instalada)
 
 ## Consideraciones en la ejecución del proyecto
-1. Puedes recorrer las páginas sin haberte registrado
-2. Al editar tu perfil, tendrás que seleccionar desde 0 todas tus opciones
-   
+1. Al abrir Inicio de Sesión, puede navegar esa página y la página de registro, luego tendrá que abrir la página de index.html para seguir navegando la aplicación web
+2. Para entrar en editar perfil tendrá que ir a la página de miperfil.html y apretar el botón correspondiente
+3. Para ver si los formularios de inicio de sesión y registro funcionan correctamente puede abrir la consola del navegador y ver si los datos de usuario son mostrados en una tabla
