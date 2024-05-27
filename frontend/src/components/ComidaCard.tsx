@@ -2,7 +2,7 @@ import React from 'react';
 import { IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonCardContent, IonGrid, IonRow, IonCol } from '@ionic/react';
 import './cards.css';
 
-export type ComidaType = 'fruta' | 'carnita' | 'lacteo';
+export type ComidaType = 'Fruta' | 'Carne' | 'Lacteo'|'Verduras' | 'Alimento proteico' |'Otros'| 'Pastas'| 'Cereales y derivados';
 
 interface Comida {
     title: string;

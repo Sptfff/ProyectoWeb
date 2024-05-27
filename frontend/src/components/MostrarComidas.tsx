@@ -17,22 +17,23 @@ interface Comida {
 
 const mapCategoriaToComidaType = (categoria: string): ComidaType => {
     switch (categoria) {
-        case 'frutas':
-            return 'fruta';
-        case 'carnes':
-            return 'carnita';
-        case 'alimento proteico':
-            return 'carnita'; // Assuming this maps to 'carnita'
-        case 'cereales y derivados':
-            return 'lacteo'; // Assuming this maps to 'lacteo'
-        case 'pastas':
-            return 'lacteo'; // Assuming this maps to 'lacteo'
-        case 'pescado':
-            return 'carnita'; // Assuming this maps to 'carnita'
-        case 'verduras':
-            return 'fruta'; // Assuming this maps to 'fruta'
+        case 'Frutas':
+            return 'Fruta';
+        case 'Carnes':
+            return 'Carne';
+        case 'Alimento proteico':
+            return 'Alimento proteico'; // Assuming this maps to 'carnita'
+        case 'Cereales y derivados':
+            return 'Cereales y derivados'; // Assuming this maps to 'lacteo'
+        case 'Pastas':
+            return 'Pastas'; // Assuming this maps to 'lacteo'
+        case 'Pescado':
+            return 'Carne'; // Assuming this maps to 'carnita'
+        case 'Verduras':
+            return 'Verduras'; // Assuming this maps to 'fruta'
         default:
-            return 'fruta'; // Default category if not mapped
+            return 'Otros'; // Default category if not mapped
+        
     }
 };
 
