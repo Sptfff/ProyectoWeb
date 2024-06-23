@@ -1,3 +1,9 @@
+/** 
+    Vamos a instalar las siguientes dependencias:
+        npm install express mysql
+        npm install cors
+ */
+
 const express = require('express');
 const app = express();
 const cors = require('cors');

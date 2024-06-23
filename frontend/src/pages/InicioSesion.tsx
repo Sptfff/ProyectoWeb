@@ -1,98 +1,55 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import {
-  IonButton,
-  IonCardTitle,
-  IonCol,
-  IonContent,
-  IonGrid,
-  IonInput,
-  IonLabel,
-  IonPage,
-  IonRow, IonHeader,
-  IonText,IonImg, IonToolbar, IonTitle
+  IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonInput, IonButton, IonLabel, IonText, IonImg
 } from '@ionic/react';
 import logo from '../logo/logo.png';
-import './Header.css';
 
 interface InicioSesionProps {
   registro: () => void;
-  login: (username: string, password: string) => void;
+  login: (userId: string) => void;
 }
 
 const InicioSesion: React.FC<InicioSesionProps> = ({ registro, login }) => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [error, setError] = useState('');
 
-  const validateForm = () => {
-    if (!username || !password) {
-      setErrorMessage('Por favor, complete todos los campos.');
-      return false;
-    }
-    setErrorMessage('');
-    return true;
-  };
-
-  const handleLogin = () => {
-    if (validateForm()) {
-      login(username, password);
+  const handleLogin = async () => {
+    try {
+      const response = await axios.post('http://localhost:3000/login', { Correo: email, Pass: password });
+      const userId = response.data.id; // Obtener el ID del usuario de la respuesta
+      localStorage.setItem('userId', userId); // Guardar el id del usuario en el almacenamiento local
+      login(userId);
+    } catch (error) {
+      setError('Error al iniciar sesión. Verifique sus credenciales.');
     }
   };
 
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar className='Toolbar'>
-          <IonImg slot="start" className='Img' src={logo} alt=""/>
+        <IonToolbar>
           <IonTitle>Inicio de Sesión</IonTitle>
+          <IonImg slot="start" className='Img' src={logo} alt="" />
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen className='ion-padding h-full w-full'>
-        <div className='justify center flex h-full w-full items-center'>
-          <IonGrid className='ion-padding'>
-
-            <IonRow className='ion-margin-top ion-padding-top'>
-              <IonCol size='12'>
-                <div>
-                  <IonLabel>Nombre de usuario</IonLabel>
-                  <IonInput
-                    type='text'
-                    value={username}
-                    onIonChange={(e) => setUsername(e.detail.value!)}
-                  />
-                </div>
-                <div>
-                  <IonLabel>Contraseña</IonLabel>
-                  <IonInput
-                    type='password'
-                    value={password}
-                    onIonChange={(e) => setPassword(e.detail.value!)}
-                  />
-                </div>
-                {errorMessage && <IonText color="danger">{errorMessage}</IonText>}
-                <IonButton
-                  className='ion-margin-top'
-                  color={'primary'}
-                  expand='block'
-                  onClick={handleLogin}
-                >
-                  Iniciar sesión
-                </IonButton>
-              </IonCol>
-            </IonRow>
-            <IonRow className='ion-text-center ion-justify-content-center'>
-              <IonCol size='12'>
-                <p>
-                  ¿No tienes una cuenta?
-                  <IonText color={'primary'} onClick={registro}>
-                    {' '}
-                    regístrate! &rarr;
-                  </IonText>
-                </p>
-              </IonCol>
-            </IonRow>
-          </IonGrid>
-        </div>
+      <IonContent className="ion-padding">
+        <IonInput
+          placeholder="Correo electrónico"
+          type="email"
+          value={email}
+          onIonChange={(e) => setEmail(e.detail.value!)}
+        />
+        <IonInput
+          placeholder="Contraseña"
+          type="password"
+          value={password}
+          onIonChange={(e) => setPassword(e.detail.value!)}
+        />
+        {error && <IonText color="danger">{error}</IonText>}
+        <IonButton expand="block" onClick={handleLogin}>Iniciar Sesión</IonButton>
+        <IonButton expand="block" onClick={registro} color="light">Registrarse</IonButton>
       </IonContent>
     </IonPage>
   );

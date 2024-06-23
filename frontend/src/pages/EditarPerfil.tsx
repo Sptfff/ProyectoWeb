@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import {
   IonPage,
   IonHeader,
@@ -27,14 +28,16 @@ import { useHistory } from 'react-router-dom';
 interface EditarPerfilProps {
   onSave: () => void;
   onCancel: () => void;
+  userId: string | null; // Asegúrate de incluir userId aquí
 }
 
-const EditarPerfil: React.FC<EditarPerfilProps> = ({ onSave, onCancel }) => {
+const EditarPerfil: React.FC<EditarPerfilProps> = ({ onSave, onCancel, userId }) => {
   const history = useHistory();
 
   const [sexo, setSexo] = useState<string>('');
   const [peso, setPeso] = useState<number | null>(null);
   const [altura, setAltura] = useState<number | null>(null);
+  const [fechaNac, setFechaNac] = useState<string>('');
   const [objetivo, setObjetivo] = useState<string>('');
   const [nivelAct, setNivelAct] = useState<string>('');
   const [errorMessages, setErrorMessages] = useState({
@@ -80,10 +83,45 @@ const EditarPerfil: React.FC<EditarPerfilProps> = ({ onSave, onCancel }) => {
     return valid;
   };
 
-  const handleSave = () => {
+  const handleSave = async () => {
     if (validateForm()) {
-      
-      onSave();
+      const userData = {
+        Nombre: "",
+        Rut: "",
+        Correo: "",
+        nombreCiudad: "",
+        nombreRegion: "",
+        Pass: "",
+        Sexo: sexo,
+        Peso: peso,
+        Altura: altura,
+        FechaNac: fechaNac,
+        Objetivo: objetivo,
+        ActividadFisica: nivelAct,
+        Activo: 1,
+        esAdmin: 0
+      };
+
+      try {
+        console.log(userId);
+        console.log("--");
+        console.log("--");
+        console.log(userData);
+        const response = await axios.put(`http://localhost:3000/users/${userId}`, userData);
+        console.log('Profile updated:', response.data);
+        onSave();
+      } catch (error) {
+        console.error('Error updating profile:', error);
+      }
+    }
+  };
+
+  const handleDateChange = (e: CustomEvent) => {
+    const value = e.detail.value;
+    if (typeof value === 'string') {
+      setFechaNac(value);
+    } else if (Array.isArray(value) && value.length > 0) {
+      setFechaNac(value[0]);
     }
   };
 
@@ -99,58 +137,65 @@ const EditarPerfil: React.FC<EditarPerfilProps> = ({ onSave, onCancel }) => {
         <div className="formulario">
           <form id="editarPerfil" method="post">
             <IonList>
-            <IonLabel>Selecciona tu sexo:</IonLabel>
+              <IonLabel>Selecciona tu sexo:</IonLabel>
               <IonRadioGroup value={sexo} onIonChange={(e) => setSexo(e.detail.value)} className="sexo">
                 <IonItem>
                   <IonLabel>Masculino</IonLabel>
-                  <IonRadio slot="start" value="Hombre" />
+                  <IonRadio slot="start" value="1" />
                 </IonItem>
                 <IonItem>
                   <IonLabel>Femenino</IonLabel>
-                  <IonRadio slot="start" value="Mujer" />
+                  <IonRadio slot="start" value="0" />
                 </IonItem>
               </IonRadioGroup>
               {errorMessages.sexo && <IonText color="danger">{errorMessages.sexo}</IonText>}
 
               <IonGrid className='entrada'>
-                  <div className='paprobar'>
-                    <IonRow>
-                      <IonCol size="6">
-                        <IonItem className='peso'>
-                          <IonLabel position="floating">Peso (Kg):</IonLabel><br />
-                          <IonInput type="number" value={peso !== null ? peso : ''} onIonChange={(e) => setPeso(parseFloat(e.detail.value!))} required />
-                        </IonItem>
-                        {errorMessages.peso && <IonText color="danger">{errorMessages.peso}</IonText>}
-                      </IonCol>
-                      <IonCol size="6">
-                        <IonItem className='altura'>
-                          <IonLabel position="floating">Altura (Cm):</IonLabel><br />
-                          <IonInput type="number" value={altura !== null ? altura : ''} onIonChange={(e) => setAltura(parseFloat(e.detail.value!))} required />
-                        </IonItem>
-                        {errorMessages.altura && <IonText color="danger">{errorMessages.altura}</IonText>}
-                      </IonCol>
-                    </IonRow>
-                  </div>
+                <div className='paprobar'>
+                  <IonRow>
+                    <IonCol size="6">
+                      <IonItem className='peso'>
+                        <IonLabel position="floating">Peso (Kg):</IonLabel><br />
+                        <IonInput type="number" value={peso !== null ? peso : ''} onIonChange={(e) => setPeso(parseFloat(e.detail.value!))} required />
+                      </IonItem>
+                      {errorMessages.peso && <IonText color="danger">{errorMessages.peso}</IonText>}
+                    </IonCol>
+                    <IonCol size="6">
+                      <IonItem className='altura'>
+                        <IonLabel position="floating">Altura (Cm):</IonLabel><br />
+                        <IonInput type="number" value={altura !== null ? altura : ''} onIonChange={(e) => setAltura(parseFloat(e.detail.value!))} required />
+                      </IonItem>
+                      {errorMessages.altura && <IonText color="danger">{errorMessages.altura}</IonText>}
+                    </IonCol>
+                  </IonRow>
+                </div>
               </IonGrid>
 
               <IonTitle className='fecha'>Fecha de Nacimiento</IonTitle>
               <div className='fecha-container'>
-                <IonDatetime className='move-right' presentation="date" preferWheel={true}></IonDatetime>
+                <IonDatetime
+                  className='move-right'
+                  id='fechanacimiento'
+                  presentation="date"
+                  preferWheel={true}
+                  value={fechaNac}
+                  onIonChange={handleDateChange}
+                ></IonDatetime>
               </div>
 
               <IonRadioGroup value={objetivo} onIonChange={(e) => setObjetivo(e.detail.value)} className="objetivo">
                 <IonLabel>¿Qué objetivo tienes?</IonLabel>
                 <IonItem>
                   <IonLabel>Bajar de Peso</IonLabel>
-                  <IonRadio slot="start" value="Bajar de Peso" />
+                  <IonRadio slot="start" value="1" />
                 </IonItem>
                 <IonItem>
                   <IonLabel>Mantener Peso</IonLabel>
-                  <IonRadio slot="start" value="Mantener Peso" />
+                  <IonRadio slot="start" value="2" />
                 </IonItem>
                 <IonItem>
                   <IonLabel>Ganar Masa Muscular</IonLabel>
-                  <IonRadio slot="start" value="Ganar Masa Muscular" />
+                  <IonRadio slot="start" value="3" />
                 </IonItem>
               </IonRadioGroup>
               {errorMessages.objetivo && <IonText color="danger">{errorMessages.objetivo}</IonText>}
@@ -159,15 +204,15 @@ const EditarPerfil: React.FC<EditarPerfilProps> = ({ onSave, onCancel }) => {
                 <IonLabel>Nivel de Actividad Física</IonLabel>
                 <IonItem>
                   <IonLabel>Ligero (1-2 días x semana)</IonLabel>
-                  <IonRadio slot="start" value="Ligero" />
+                  <IonRadio slot="start" value="1" />
                 </IonItem>
                 <IonItem>
                   <IonLabel>Moderado (3-4 días x semana)</IonLabel>
-                  <IonRadio slot="start" value="Moderado" />
+                  <IonRadio slot="start" value="2" />
                 </IonItem>
                 <IonItem>
                   <IonLabel>Alto (5 o más días x semana)</IonLabel>
-                  <IonRadio slot="start" value="Alto" />
+                  <IonRadio slot="start" value="3" />
                 </IonItem>
               </IonRadioGroup>
               {errorMessages.nivelAct && <IonText color="danger">{errorMessages.nivelAct}</IonText>}

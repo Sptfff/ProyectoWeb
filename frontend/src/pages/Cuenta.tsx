@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { IonHeader, IonContent, IonTitle, IonToolbar, IonPage } from '@ionic/react';
+import React, { useState, useEffect } from 'react';
 import InicioSesion from './InicioSesion';
 import Registro from './Registro';
 import CuentaContent from './CuentaContent'; // Importar el componente CuentaContent
@@ -9,13 +8,23 @@ const Cuenta: React.FC = () => {
   const [isLogged, setIsLogged] = useState(false);
   const [isSigningUp, setIsSigningUp] = useState(false);
   const [isEditingProfile, setIsEditingProfile] = useState(false);
+  const [userId, setUserId] = useState<string | null>(null);
+
+  useEffect(() => {
+    const id = localStorage.getItem('userId');
+    if (id) {
+      setUserId(id);
+      setIsLogged(true);
+    }
+  }, []);
 
   const setSigningUp = (val: boolean = true) => {
     setIsSigningUp(val);
   };
 
-  const setLoggedIn = (val: boolean = true) => {
-    setIsLogged(val);
+  const setLoggedIn = (userId: string) => {
+    setUserId(userId);
+    setIsLogged(true);
   };
 
   const setEditingProfile = (val: boolean = true) => {
@@ -23,22 +32,23 @@ const Cuenta: React.FC = () => {
   };
 
   const handleSaveProfile = () => {
-    // Aquí deberías guardar los datos del perfil y luego mostrar la página de CuentaContent
     setEditingProfile(false);
   };
 
   return !isSigningUp && !isLogged ? (
-    <InicioSesion registro={setSigningUp} login={() => setLoggedIn(true)} />
+    <InicioSesion registro={setSigningUp} login={setLoggedIn} />
   ) : isEditingProfile ? (
-    <EditarPerfil onSave={handleSaveProfile} onCancel={() => setEditingProfile(false)} />
+    <EditarPerfil onSave={handleSaveProfile} onCancel={() => setEditingProfile(false)} userId={userId} />
   ) : isLogged ? (
-    <CuentaContent setLoggedOut={() => setLoggedIn(false)} onEditProfile={() => setEditingProfile(true)} />
+    <CuentaContent setLoggedOut={() => {
+      setIsLogged(false);
+      localStorage.removeItem('userId');
+    }} onEditProfile={() => setEditingProfile(true)} />
   ) : (
     <Registro
       back={() => setSigningUp(false)}
-      login={() => {
-        setLoggedIn(true);
-        // Después de registrarte, muestra la página de edición de perfil
+      login={(userId) => {
+        setLoggedIn(userId);
         setEditingProfile(true);
       }}
     />

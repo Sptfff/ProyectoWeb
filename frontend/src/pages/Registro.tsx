@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import bcrypt from 'bcryptjs';
 import {
   IonButton,
   IonButtons,
@@ -21,15 +20,15 @@ import {
 } from '@ionic/react';
 import { arrowBack } from 'ionicons/icons';
 import RegionComunaSelector from './RegionComunaSelector';
-import './Header.css'
-import logo from '../logo/logo.png'
+import './Header.css';
+import logo from '../logo/logo.png';
 
 interface RegistroProps {
   back: () => void;
-  login: () => void; 
+  login: (userId: string) => void;
 }
 
-const Registro: React.FC<RegistroProps> = ({ back, login }: RegistroProps) => {
+const Registro: React.FC<RegistroProps> = ({ back, login }) => {
   const [username, setUsername] = useState('');
   const [rut, setRut] = useState('');
   const [email, setEmail] = useState('');
@@ -49,6 +48,7 @@ const Registro: React.FC<RegistroProps> = ({ back, login }: RegistroProps) => {
     acceptTerms: '',
   });
 
+  // Función para validar el RUT y su dígito verificador
   const validaDV = (rut: string) => {
     const [numero, dv] = rut.replace("-K", "-k").split("-");
     const dvVer = ((T) => {
@@ -59,6 +59,7 @@ const Registro: React.FC<RegistroProps> = ({ back, login }: RegistroProps) => {
     return dvVer == dv.toLowerCase();
   };
 
+  // Función para validar el formulario antes de enviar
   const validateForm = () => {
     const newErrorMessages = {
       username: '',
@@ -80,7 +81,7 @@ const Registro: React.FC<RegistroProps> = ({ back, login }: RegistroProps) => {
       newErrorMessages.rut = 'Por favor, ingrese su RUT.';
       valid = false;
     } else if (!/^[0-9]{7,8}-[0-9Kk]{1}$/.test(rut)) {
-      newErrorMessages.rut = 'El RUT ingresado es inválido. (ej: 123456789-0)';
+      newErrorMessages.rut = 'El RUT ingresado es inválido. (ej: 12345678-9)';
       valid = false;
     } else if (!validaDV(rut)) {
       newErrorMessages.rut = 'El dígito verificador del RUT es inválido.';
@@ -90,7 +91,7 @@ const Registro: React.FC<RegistroProps> = ({ back, login }: RegistroProps) => {
       newErrorMessages.email = 'Por favor, ingrese su email.';
       valid = false;
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      newErrorMessages.email = 'El email ingresado es inválido. (ej:alguien@example.com)';
+      newErrorMessages.email = 'El email ingresado es inválido. (ej: alguien@example.com)';
       valid = false;
     }
     if (!region) {
@@ -121,29 +122,34 @@ const Registro: React.FC<RegistroProps> = ({ back, login }: RegistroProps) => {
     return valid;
   };
 
+  // Función para manejar el registro de usuario
   const handleSignup = async () => {
     if (validateForm()) {
-      const saltRounds = 10;
-      const hashedPassword = await bcrypt.hash(password, saltRounds);
-
       const userData = {
-        idUsuario: 0,
+        id: 0, // Este valor probablemente no sea necesario si el servidor asigna el ID
         Nombre: username,
-        Sexo: 0,
-        Altura: 0,
-        Peso: 0,
-        FechaNac: '1990-01-01',
-        Objetivo: 1,
-        ActividadFisica: 1,
-        Pass: hashedPassword,
-        idCiudad: parseInt(comuna),
-        Activo: 0
+        Rut: rut,
+        Correo: email,
+        nombreCiudad: comuna,
+        nombreRegion: region,
+        Pass: password,
+        Sexo: 0, // Ajusta según la estructura esperada por tu API
+        Peso: 0, // Ajusta según la estructura esperada por tu API
+        Altura: 0, // Ajusta según la estructura esperada por tu API
+        FechaNac: '1990-01-01', // Ajusta según la estructura esperada por tu API
+        Objetivo: 1, // Ajusta según la estructura esperada por tu API
+        ActividadFisica: 1, // Ajusta según la estructura esperada por tu API
+        Activo: 1, // Ajusta según la estructura esperada por tu API
+        esAdmin: 0 // Ajusta según la estructura esperada por tu API
       };
 
       try {
-        const response = await axios.post('http://localhost:3000', userData);
+        const response = await axios.post('http://localhost:3000/users/', userData);
+        const userId = response.data.id; // Obtener el ID del usuario de la respuesta
         console.log('Signup successful:', response.data);
-        login();
+        console.log('User ID:', userId);
+        localStorage.setItem('userId', userId.toString()); // Guardar el ID del usuario en el almacenamiento local
+        login(userId.toString()); // Llamar a la función de login después del registro exitoso
       } catch (error) {
         console.error('Error during signup:', error);
       }
@@ -157,7 +163,7 @@ const Registro: React.FC<RegistroProps> = ({ back, login }: RegistroProps) => {
           <IonButtons slot='start'>
             <IonIcon color='primary' onClick={back} icon={arrowBack} className='h-6 w-6' />
             <IonLabel>Volver a Inicio de Sesión</IonLabel>
-            <IonImg className='Img' src={logo} alt=""  />
+            <IonImg className='Img' src={logo} alt="" />
           </IonButtons>
         </IonToolbar>
       </IonHeader>
@@ -169,13 +175,10 @@ const Registro: React.FC<RegistroProps> = ({ back, login }: RegistroProps) => {
                 <IonCardTitle>Regístrate!</IonCardTitle>
               </IonCol>
             </IonRow>
-
             <IonRow className='ion-margin-top ion-padding-top'>
               <IonCol size='12'>
                 <div>
-                  
                   <IonInput
-                    
                     placeholder='Ingrese nombre de usuario'
                     type='text'
                     value={username}
@@ -193,7 +196,6 @@ const Registro: React.FC<RegistroProps> = ({ back, login }: RegistroProps) => {
                   {errorMessages.rut && <IonText color="danger">{errorMessages.rut}</IonText>}
                 </div>
                 <div>
-                  
                   <IonInput
                     placeholder='Ingrese su Email'
                     type='email'
@@ -202,15 +204,12 @@ const Registro: React.FC<RegistroProps> = ({ back, login }: RegistroProps) => {
                   />
                   {errorMessages.email && <IonText color="danger">{errorMessages.email}</IonText>}
                 </div>
-                
                 <RegionComunaSelector
                   onRegionChange={(regionId: string) => setRegion(regionId)}
                   onComunaChange={(comunaId: string) => setComuna(comunaId)}
                 />
-                {/* Mensajes de error para región y comuna */}
                 {errorMessages.region && <IonText color="danger">{errorMessages.region}</IonText>}
                 {errorMessages.comuna && <IonText color="danger">{errorMessages.comuna}</IonText>}
-
                 <div>
                   <IonInput
                     placeholder='Ingrese su contraseña'
@@ -221,7 +220,6 @@ const Registro: React.FC<RegistroProps> = ({ back, login }: RegistroProps) => {
                   {errorMessages.password && <IonText color="danger">{errorMessages.password}</IonText>}
                 </div>
                 <div>
-                  
                   <IonInput
                     placeholder='Confirme su contraseña'
                     type='password'
@@ -234,7 +232,6 @@ const Registro: React.FC<RegistroProps> = ({ back, login }: RegistroProps) => {
                   color={'success'}
                   checked={acceptTerms}
                   onIonChange={(e) => setAcceptTerms(e.detail.checked)}
-                  labelPlacement='end'
                 >
                   Acepto los términos y condiciones
                 </IonToggle>
