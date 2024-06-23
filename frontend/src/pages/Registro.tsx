@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import bcrypt from 'bcryptjs';
 import {
   IonButton,
   IonButtons,
@@ -24,7 +26,7 @@ import logo from '../logo/logo.png'
 
 interface RegistroProps {
   back: () => void;
-  login: () => void; // Agregar función para iniciar sesión
+  login: () => void; 
 }
 
 const Registro: React.FC<RegistroProps> = ({ back, login }: RegistroProps) => {
@@ -119,11 +121,32 @@ const Registro: React.FC<RegistroProps> = ({ back, login }: RegistroProps) => {
     return valid;
   };
 
-  const handleSignup = () => {
+  const handleSignup = async () => {
     if (validateForm()) {
-      // Proceed with the signup process
-      console.log('Signup successful');
-      login();
+      const saltRounds = 10;
+      const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+      const userData = {
+        idUsuario: 0,
+        Nombre: username,
+        Sexo: 0,
+        Altura: 0,
+        Peso: 0,
+        FechaNac: '1990-01-01',
+        Objetivo: 1,
+        ActividadFisica: 1,
+        Pass: hashedPassword,
+        idCiudad: parseInt(comuna),
+        Activo: 0
+      };
+
+      try {
+        const response = await axios.post('http://localhost:3000', userData);
+        console.log('Signup successful:', response.data);
+        login();
+      } catch (error) {
+        console.error('Error during signup:', error);
+      }
     }
   };
 
@@ -220,8 +243,7 @@ const Registro: React.FC<RegistroProps> = ({ back, login }: RegistroProps) => {
                   className='ion-margin-top'
                   color={'primary'}
                   expand='block'
-                  onClick={handleSignup}
-                >
+                  onClick={handleSignup}>
                   Crear cuenta
                 </IonButton>
               </IonCol>
