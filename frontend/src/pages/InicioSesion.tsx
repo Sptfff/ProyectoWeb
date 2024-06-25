@@ -7,7 +7,7 @@ import logo from '../logo/logo.png';
 
 interface InicioSesionProps {
   registro: () => void;
-  login: (userId: string) => void;
+  login: () => void;
 }
 
 const InicioSesion: React.FC<InicioSesionProps> = ({ registro, login }) => {
@@ -17,10 +17,13 @@ const InicioSesion: React.FC<InicioSesionProps> = ({ registro, login }) => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post('http://localhost:3000/login', { Correo: email, Pass: password });
-      const userId = response.data.id; // Obtener el ID del usuario de la respuesta
+      const response = await axios.post('http://localhost:3000/users/login', { Correo: email, Pass: password });
+      console.log(response);
+      localStorage.setItem('token', response.data.id)
+      login();
+      /*const userId = response.data.id; // Obtener el ID del usuario de la respuesta
       localStorage.setItem('userId', userId); // Guardar el id del usuario en el almacenamiento local
-      login(userId);
+      login(userId);*/
     } catch (error) {
       setError('Error al iniciar sesión. Verifique sus credenciales.');
     }

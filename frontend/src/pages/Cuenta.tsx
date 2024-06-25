@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 import InicioSesion from './InicioSesion';
 import Registro from './Registro';
 import CuentaContent from './CuentaContent'; // Importar el componente CuentaContent
@@ -8,50 +10,58 @@ const Cuenta: React.FC = () => {
   const [isLogged, setIsLogged] = useState(false);
   const [isSigningUp, setIsSigningUp] = useState(false);
   const [isEditingProfile, setIsEditingProfile] = useState(false);
-  const [userId, setUserId] = useState<string | null>(null);
+  const history = useHistory();
 
   useEffect(() => {
-    const id = localStorage.getItem('userId');
-    if (id) {
-      setUserId(id);
-      setIsLogged(true);
+    const token = localStorage.getItem('token');
+    if (token) {
+      axios.get('http://localhost:3000/perfil', {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      .then(response => {
+        console.log(response.data.message); // Token is valid
+        setIsLogged(true);
+      })
+      .catch(error => {
+        console.error('Error verifying token:', error);
+        localStorage.removeItem('token');
+        setIsLogged(false);
+      });
     }
   }, []);
 
-  const setSigningUp = (val: boolean = true) => {
-    setIsSigningUp(val);
+  const handleSignUp = (): void => {
+    setIsSigningUp(true);
   };
 
-  const setLoggedIn = (userId: string) => {
-    setUserId(userId);
+  const handleLogin = (): void => {
     setIsLogged(true);
+    setIsEditingProfile(true);
   };
 
-  const setEditingProfile = (val: boolean = true) => {
-    setIsEditingProfile(val);
+  const handleEditProfile = (): void => {
+    setIsEditingProfile(true);
   };
 
-  const handleSaveProfile = () => {
-    setEditingProfile(false);
+  const handleSaveProfile = (): void => {
+    setIsEditingProfile(false);
+  };
+
+  const handleLogout = (): void => {
+    setIsLogged(false);
+    localStorage.removeItem('token');
   };
 
   return !isSigningUp && !isLogged ? (
-    <InicioSesion registro={setSigningUp} login={setLoggedIn} />
+    <InicioSesion registro={handleSignUp} login={handleLogin} />
   ) : isEditingProfile ? (
-    <EditarPerfil onSave={handleSaveProfile} onCancel={() => setEditingProfile(false)} userId={userId} />
+    <EditarPerfil onSave={handleSaveProfile} onCancel={() => setIsEditingProfile(false)} />
   ) : isLogged ? (
-    <CuentaContent setLoggedOut={() => {
-      setIsLogged(false);
-      localStorage.removeItem('userId');
-    }} onEditProfile={() => setEditingProfile(true)} />
+    <CuentaContent setLoggedOut={handleLogout} onEditProfile={handleEditProfile} />
   ) : (
-    <Registro
-      back={() => setSigningUp(false)}
-      login={(userId) => {
-        setLoggedIn(userId);
-        setEditingProfile(true);
-      }}
-    />
+    <Registro back={() => setIsSigningUp(false)} login={handleLogin} />
   );
 };
 

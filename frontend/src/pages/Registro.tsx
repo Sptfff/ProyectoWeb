@@ -25,7 +25,7 @@ import logo from '../logo/logo.png';
 
 interface RegistroProps {
   back: () => void;
-  login: (userId: string) => void;
+  login: () => void;
 }
 
 const Registro: React.FC<RegistroProps> = ({ back, login }) => {
@@ -126,30 +126,20 @@ const Registro: React.FC<RegistroProps> = ({ back, login }) => {
   const handleSignup = async () => {
     if (validateForm()) {
       const userData = {
-        id: 0, // Este valor probablemente no sea necesario si el servidor asigna el ID
         Nombre: username,
         Rut: rut,
         Correo: email,
         nombreCiudad: comuna,
         nombreRegion: region,
-        Pass: password,
-        Sexo: 0, // Ajusta según la estructura esperada por tu API
-        Peso: 0, // Ajusta según la estructura esperada por tu API
-        Altura: 0, // Ajusta según la estructura esperada por tu API
-        FechaNac: '1990-01-01', // Ajusta según la estructura esperada por tu API
-        Objetivo: 1, // Ajusta según la estructura esperada por tu API
-        ActividadFisica: 1, // Ajusta según la estructura esperada por tu API
-        Activo: 1, // Ajusta según la estructura esperada por tu API
-        esAdmin: 0 // Ajusta según la estructura esperada por tu API
+        Pass: password  
       };
 
       try {
-        const response = await axios.post('http://localhost:3000/users/', userData);
-        const userId = response.data.id; // Obtener el ID del usuario de la respuesta
+        const response = await axios.post('http://localhost:3000/users/registro', userData);
+        const token = response.data.id; // Obtener el ID del usuario de la respuesta
         console.log('Signup successful:', response.data);
-        console.log('User ID:', userId);
-        localStorage.setItem('userId', userId.toString()); // Guardar el ID del usuario en el almacenamiento local
-        login(userId.toString()); // Llamar a la función de login después del registro exitoso
+        localStorage.setItem('token',token); // Guardar el ID del usuario en el almacenamiento local
+        login(); // Llamar a la función de login después del registro exitoso
       } catch (error) {
         console.error('Error during signup:', error);
       }

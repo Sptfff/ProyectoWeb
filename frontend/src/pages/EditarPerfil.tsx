@@ -28,10 +28,9 @@ import { useHistory } from 'react-router-dom';
 interface EditarPerfilProps {
   onSave: () => void;
   onCancel: () => void;
-  userId: string | null; // Asegúrate de incluir userId aquí
 }
 
-const EditarPerfil: React.FC<EditarPerfilProps> = ({ onSave, onCancel, userId }) => {
+const EditarPerfil: React.FC<EditarPerfilProps> = ({ onSave, onCancel }) => {
   const history = useHistory();
 
   const [sexo, setSexo] = useState<string>('');
@@ -86,29 +85,36 @@ const EditarPerfil: React.FC<EditarPerfilProps> = ({ onSave, onCancel, userId })
   const handleSave = async () => {
     if (validateForm()) {
       const userData = {
-        Nombre: "",
-        Rut: "",
-        Correo: "",
-        nombreCiudad: "",
-        nombreRegion: "",
-        Pass: "",
         Sexo: sexo,
         Peso: peso,
         Altura: altura,
         FechaNac: fechaNac,
         Objetivo: objetivo,
-        ActividadFisica: nivelAct,
-        Activo: 1,
-        esAdmin: 0
+        ActividadFisica: nivelAct
       };
 
       try {
-        console.log(userId);
+        console.log(userData)
+        const idToken = localStorage.getItem('token');
+        console.log(idToken);
+        const response = await axios.put(
+          'http://localhost:3000/users/editar',
+          userData, // Este es el body de la solicitud
+          {
+              headers: {
+                  Authorization: `Bearer ${idToken}`
+              }
+          }
+      );
+        console.log(response);
+
+
+        /*console.log(userId);
         console.log("--");
         console.log("--");
         console.log(userData);
         const response = await axios.put(`http://localhost:3000/users/${userId}`, userData);
-        console.log('Profile updated:', response.data);
+        console.log('Profile updated:', response.data);*/
         onSave();
       } catch (error) {
         console.error('Error updating profile:', error);

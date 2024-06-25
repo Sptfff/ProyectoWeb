@@ -8,6 +8,13 @@ interface CuentaContentProps {
 }
 
 const CuentaContent: React.FC<CuentaContentProps> = ({ setLoggedOut, onEditProfile }) => {
+
+  const cerrar = () => {
+    localStorage.removeItem('token'); // Eliminar el token del almacenamiento local
+    setLoggedOut();
+  };
+  
+
   return (
     <IonPage>
       <IonHeader>
@@ -29,7 +36,7 @@ const CuentaContent: React.FC<CuentaContentProps> = ({ setLoggedOut, onEditProfi
           Editar perfil
         </IonButton>
         <IonButton className="ion-margin-top ion-padding" 
-                    expand='block' color="danger" onClick={setLoggedOut}>
+                    expand='block' color="danger" onClick={cerrar}>
           Cerrar sesión
         </IonButton>
         
